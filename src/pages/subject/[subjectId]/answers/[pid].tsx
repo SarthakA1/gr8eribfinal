@@ -10,6 +10,7 @@ import usePosts from '@/hooks/usePosts';
 import useSubjectData from '@/hooks/useSubjectData';
 import { User } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -52,6 +53,7 @@ const PostPage: React.FC = () => {
       </>
       <>
       {postStateValue.selectedPost && (
+        
           <PostItem
             post={postStateValue.selectedPost}
             onVote={onVote}
@@ -64,6 +66,15 @@ const PostPage: React.FC = () => {
             userIsCreator={user?.uid === postStateValue.selectedPost?.creatorId}
           />
         )}
+          <div>
+
+            
+
+      <Head>
+        <title>{postStateValue.selectedPost?.title || postStateValue.selectedPost?.subjectId} </title>
+      </Head>
+      
+    </div>
         <Answers
           user={user as User}
           selectedPost={postStateValue.selectedPost}
