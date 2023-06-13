@@ -47,7 +47,7 @@ const Searchinput:React.FC<SearchinputProps> = ({ user }) => {
         </a>
       </Link>
 
-      <Link href="https://www.instagram.com/gr8erib" rel="noopener noreferrer" target="_blank" ml={1}>
+      <Link href="https://www.instagram.com/_gr8er" rel="noopener noreferrer" target="_blank" ml={1}>
         <a>
         <Image src="/images/instagramblack.png" height="29px" mb="1px"   />
         
