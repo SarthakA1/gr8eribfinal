@@ -20,6 +20,7 @@ import useSubjectData from "../hooks/useSubjectData";
 import usePosts from "../hooks/usePosts";
 import PageContent from "@/components/layout/PageContent";
 import Head from 'next/head'
+import { Analytics } from '@vercel/analytics/react';
  
 
 const Home: NextPage = () => {
@@ -32,6 +33,7 @@ const Home: NextPage = () => {
     onDeletePost,
     onVote,
   } = usePosts();
+  
   const { subjectStateValue } = useSubjectData();
 
 
@@ -149,6 +151,7 @@ console.log(subjectStateValue)
       </Stack>
       <>
         <CreatePostLink />
+        <Analytics />
         <div>
       <Head>
         <title>GR8ER</title>
