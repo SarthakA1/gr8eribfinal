@@ -8,6 +8,7 @@ import NotFound from '@/components/Subject/NotFound';
 import { firestore } from '@/firebase/clientApp';
 import { doc, getDoc } from 'firebase/firestore';
 import { GetServerSidePropsContext } from 'next';
+import Head from 'next/head';
 import { stringify } from 'querystring';
 import React, { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
@@ -42,7 +43,14 @@ const SubjectPage: React.FC<SubjectPageProps> = ({ subjectData }) => {
      <About subjectData={subjectData}/>
     </>
     <>
+
     <div> <CreatePostLink/> </div>
+    <div>
+      <Head>
+        <title>{subjectData.id}</title>
+      </Head>
+      
+    </div>
     <Posts subjectData ={subjectData}/>
     </>
 
