@@ -19,6 +19,8 @@ import { auth, firestore } from "../firebase/clientApp";
 import useSubjectData from "../hooks/useSubjectData";
 import usePosts from "../hooks/usePosts";
 import PageContent from "@/components/layout/PageContent";
+import Head from 'next/head'
+ 
 
 const Home: NextPage = () => {
   const [user, loadingUser] = useAuthState(auth);
@@ -31,6 +33,10 @@ const Home: NextPage = () => {
     onVote,
   } = usePosts();
   const { subjectStateValue } = useSubjectData();
+
+
+
+
 
   const buildUserHomeFeed = async () => {
     setLoading(true);
@@ -132,13 +138,23 @@ const Home: NextPage = () => {
 console.log(subjectStateValue)
 
   return (
+    
+    
+
     <PageContent>
+
       
       <Stack spacing={5}>
         <Recommendations />
       </Stack>
       <>
         <CreatePostLink />
+        <div>
+      <Head>
+        <title>GR8ER</title>
+      </Head>
+      
+    </div>
         {loading ? (
           <PostLoader />
         ) : (
@@ -163,6 +179,8 @@ console.log(subjectStateValue)
         )}
       </>
     </PageContent>
+
+    
   );
 };
 
